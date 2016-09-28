@@ -1,2 +1,9 @@
 <h1>Tasks#show</h1>
-<p>Find me in app/views/tasks/show.html.erb</p>
+
+<article>
+  <h2> <a href="<%= @mytask[:id] %>"> <%= @mytask[:title] %> </a> </h2>
+  <h3> <%= @mytask[:description] %> </h3>
+  <p> <%= @mytask[:completed_at] %> </p>
+  <p> <%= link_to("Edit", edit_path(@mytask[:id])) %></p>
+  <p> <%= link_to("Delete", destroy_path(@mytask[:id]), method: :delete) %></p>
+</article>
