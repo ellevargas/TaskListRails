@@ -29,6 +29,7 @@ text-align: left;
 article {
   width: 100%;
   text-align: left;
+  padding: 3vw 0 1vw 5vw;
 }
 
 article a, h3 {

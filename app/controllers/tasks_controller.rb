@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   def index
-    @tasks = TasksController.alltasks
+    @tasks = Task.all
+    # @tasks = TasksController.alltasks
   end
 
   def new
@@ -37,9 +38,9 @@ class TasksController < ApplicationController
 
   def self.alltasks
     [
-      {id: 1, title: "Do photo shoot", description: "Fresh and profesh for my Linkedin", completed_at: Time.now},
-      {id: 2, title: "Feed my face", description: "I am so damn hungry", completed_at: Time.now},
-      {id: 3, title: "Play board games", description: "As long as it's not Catan again", completed_at: Time.now}
+      {id: 1, title: "Do photo shoot", description: "Fresh and profesh for my Linkedin", completed_at: Time.now, completion_status: false},
+      {id: 2, title: "Feed my face", description: "I am so damn hungry", completed_at: Time.now, completion_status: false},
+      {id: 3, title: "Play board games", description: "As long as it's not Catan again", completed_at: Time.now, completion_status: false}
     ]
   end
 
