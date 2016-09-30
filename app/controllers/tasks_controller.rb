@@ -24,12 +24,19 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @mytask = Task.find(params[:id].to_i)
+    @mytask.save
+    if @mytask == nil
+      @mytask = {id: params[:id].to_i, title: "Dude that doesn't exist"}
+    end
   end
 
   def update
     @mytask = Task.find(params[:id].to_i)
-    @mytask.marked_completed
+    @mytask.title = params[:task][:title]
+    @mytask.description = params[:task][:description]
     @mytask.save
+    redirect_to action: 'index'
 
     # puts @mytask.completion_status
     # puts @mytask.completed_at
@@ -40,6 +47,12 @@ class TasksController < ApplicationController
     #   puts false
     # end
     # puts "wheee"
+  end
+
+  def complete
+    show
+    @mytask.marked_completed
+    @mytask.save
     redirect_to action: 'index'
   end
 

@@ -1,12 +1,12 @@
 <article>
-  <h2> <a href="<%= @mytask.id %>"> <%= @mytask.title.upcase %> </a> </h2>
+  <h2> <a href="<%= @mytask.id %>"> <%= @mytask.title %> </a> </h2>
   <h3> Description: <%= @mytask.description %> </h3>
   <h3> Completed? <%= @mytask.completion_status %> </h3>
   <h3> Completed at: <%= @mytask.completed_at %> </h3>
 
   <p> <%= button_to "Edit Task", {action: "edit", id: @mytask.id}, method: :get%></p>
 
-  <p> <%= button_to "Mark Task Complete", {action: "update", id: @mytask.id}, method: :put %></p>
+  <p> <%= button_to "Mark Task Complete", {action: "complete", id: @mytask.id}, method: :put %></p>
 
   <p> <%= button_to "Delete Task", {action: "destroy", id: @mytask.id}, method: :delete, data: {confirm: "Are you sure you want to delete this task?" }%></p>
 
