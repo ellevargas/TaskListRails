@@ -8,8 +8,14 @@
 </head>
 <body>
   <header>
-    <h1> Taskmaster</h1>
-    <h2 id="byline">Be the best at everything!</h2>
+    <h1> Taskmaster: be the best at everything!</h1>
+    <nav>
+      <ul>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "New Task", new_path %></li>
+        <li><a href="http://www.leekspin.com">Party</a></li>
+      </ul>
+    </nav>
   </header>
 <%= yield %>
 
