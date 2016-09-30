@@ -15,8 +15,14 @@ class TasksController < ApplicationController
     @mytask.description = params[:task][:description]
     @mytask.completed_at = params[:task][:completed_at]
     @mytask.completion_status = params[:task][:completion_status]
-    @mytask.save
-    redirect_to action: 'index'
+    if @mytask.title == nil ||  @mytask.title == ""
+      flash[:notice] = "Dude you need a title at the very least"
+      redirect_to action: 'new'
+    else
+      @mytask.save
+      redirect_to action: 'index'
+
+    end
   end
 
   def show

@@ -1,9 +1,19 @@
-<%= form_for @mytask, url: create_path do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<h4><%= flash[:notice] %></h4>
+<div id="form">
+  <%= form_for @mytask, url: create_path do |f| %>
+    <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    </div>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+    <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
 
-  <%= f.submit %>
-<% end %>
+  <div class="button">
+    <%= f.submit %>
+  </div>
+  <% end %>
+
+</div>

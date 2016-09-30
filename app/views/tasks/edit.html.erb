@@ -1,9 +1,22 @@
-<%= form_for @mytask, url: update_path do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<div id="form">
+  <%= form_for @mytask, url: update_path do |f| %>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+    <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    </div>
 
-  <%= f.submit %>
-<% end %>
+    <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="button">
+    <%= f.submit 'Edit task', :class => 'submit_class_name_here' %>
+  </div>
+  <% end %>
+
+</div>
+
+<%# form.button be careful brooo
+:html => {:class => "edit-form"} %>

@@ -13,6 +13,12 @@ font-size: 4rem;
 text-align: left;
 }
 
+h4 {
+  color: black;
+  padding-top: 3.5vw;
+  font-size: 2.5rem;
+}
+
 nav {
   margin: 1.75vw 0 1vw 7vw;
 }
@@ -35,10 +41,54 @@ article h2 a {
 }
 
 article a, h3 {
-  /*line-height: 1;*/
   font-size: 1.75rem;
   padding: 2vw 0 1vw 0;
 }
 
-form_for {
+#form .field {
+  display: block;
+  padding: 1vw;
+  margin: 4vw;
 }
+
+#form .field input {
+  padding: 1vw;
+  font-size: 16pt;
+  box-sizing: border-box;
+  width: 40vw;
+  height: 5vw;
+  border: 3px #5700B5 solid;
+}
+
+#form .field label {
+  font-size: 18pt;
+  font-weight: bold;
+  padding: 2vw;
+}
+
+#form .button {
+  display: inline-block;
+  padding: 1vw;
+  margin: 1vw;
+}
+
+#form .button input {
+  font-size: 16pt;
+  height: 7vw;
+  width: 15vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***/
