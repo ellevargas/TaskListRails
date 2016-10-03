@@ -1,4 +1,4 @@
-<div id="form">
+<div class="form">
   <%= form_for @mytask, url: update_path do |f| %>
 
     <div class="field">
@@ -11,9 +11,8 @@
     <%= f.text_field :description %>
   </div>
 
-  <div class="button">
-    <%= f.submit 'Edit task', :class => 'submit_class_name_here' %>
-  </div>
+    <%= f.submit 'Edit task', :class => 'btn' %>
+
   <% end %>
 
 </div>

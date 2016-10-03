@@ -4,10 +4,10 @@
   <h3> Completed? <%= @mytask.completion_status %> </h3>
   <h3> Completed at: <%= @mytask.completed_at %> </h3>
 
-  <p> <%= button_to "Edit Task", {action: "edit", id: @mytask.id}, method: :get%></p>
+  <%= button_to "Edit Task", {action: "edit", id: @mytask.id}, method: :get, :class => 'btn' %>
 
-  <p> <%= button_to "Mark Task Complete", {action: "complete", id: @mytask.id}, method: :put %></p>
+  <%= button_to "Task Completed!", {action: "complete", id: @mytask.id}, method: :put, :class => 'btn' %>
 
-  <p> <%= button_to "Delete Task", {action: "destroy", id: @mytask.id}, method: :delete, data: {confirm: "Are you sure you want to delete this task?" }%></p>
+  <%= button_to "Delete Task", {action: "destroy", id: @mytask.id}, method: :delete, data: {confirm: "Are you sure you want to delete this task?" }, :class => 'btn'%>
 
 </article>
