@@ -1,6 +1,6 @@
 Reflection:
 
-I enjoyed building this. I better understand what my errors mean, and can usually find the location where I'm missing information. I also got to add functionality for timestamping (though it only works once). I now know how to apply classes to forms and buttons.
+I enjoyed building this. I better understand what my errors mean, and can usually find the file where I'm missing information. I also got to add functionality for timestamping (though it only works once). I now know how to apply classes to forms and buttons.
 
 CSS is still difficult for me  - I didn't know how to edit buttons and that was a bit of a mess. The buttons on my edit and create task pages are enormous, though I could probably put an ID in the CSS to handle them.
 
