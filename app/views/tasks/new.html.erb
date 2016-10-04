@@ -1,19 +1,7 @@
-<div class="form">
-  <%= form_for @mytask, url: create_path do |f| %>
-    <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    </div>
+<!-- <div class="form">
+  <%#create_path%>
 
-    <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
+</div> -->
 
-  <%= f.submit 'New task', :class => 'btn' %>
-
-  <h4><%= flash[:notice] %></h4>
-
-  <% end %>
-
-</div>
+<%= render partial: "form", locals: {action_name: "create"} %>
+<%# You can throw action_name into the url space in _form.html.erb but make sure to change action_name to "create" - @path isn't needed in controller in this case %>

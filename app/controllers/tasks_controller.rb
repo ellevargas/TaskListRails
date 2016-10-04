@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   end
 
   def new
+    @path = "create"
     @mytask = Task.new
   end
 
@@ -30,6 +31,7 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @path = "update"
     @mytask = Task.find(params[:id].to_i)
     @mytask.save
     if @mytask == nil

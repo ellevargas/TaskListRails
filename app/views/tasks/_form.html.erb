@@ -1,0 +1,18 @@
+<div class="form">
+
+  <%= form_for @mytask, url: action_name do |f| %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+    <%= f.submit 'Submit', :class => 'btn' %>
+
+  <% end %>
+</div>
