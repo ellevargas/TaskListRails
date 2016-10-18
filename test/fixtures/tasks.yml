@@ -1,11 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  description: MyString
+weilis_tasks:
+  title: "Write code"
+  description: "Like a boss"
+  user: :weili
   completed_at: 2016-09-28 14:21:25
 
-two:
-  title: MyString
-  description: MyString
-  completed_at: 2016-09-28 14:21:25
+ellens_tasks:
+  title: "Be an astronaut"
+  description: "Hell yes"
+  user: :ellen
