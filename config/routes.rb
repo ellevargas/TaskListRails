@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'sessions/create'
+
   root to: 'tasks#index'
   get 'tasks/index', as: 'index'
 
@@ -16,6 +18,9 @@ Rails.application.routes.draw do
   put 'tasks/:id/complete' => 'tasks#complete', as: 'complete'
 
   delete 'tasks/:id/destroy' => 'tasks#destroy', as: 'delete'
+
+  get "/auth/:provider/callback" => "sessions#create"
+
 
   # **delete ask about later
 
