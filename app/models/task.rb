@@ -10,3 +10,9 @@ class Task < ActiveRecord::Base
     # set completed date to time.now
   end
 end
+
+# in app/models/Task.rb
+class Task < ActiveRecord::Base
+  validate :name, presence: :true
+  validates_with MyValidator
+end

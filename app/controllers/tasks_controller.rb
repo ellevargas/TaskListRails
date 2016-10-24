@@ -1,4 +1,7 @@
 class TasksController < ApplicationController
+  before_action :find_task, only: [:show, :edit, :update]
+  # except instead of only uses it on all but the aforementioned methods
+
   def index
     @tasks = Task.all
     # @tasks = TasksController.alltasks
@@ -26,13 +29,10 @@ class TasksController < ApplicationController
     end
   end
 
-  def show
-    @mytask = Task.find(params[:id].to_i)
-  end
+  def show; end
 
   def edit
     @path = "update"
-    @mytask = Task.find(params[:id].to_i)
     @mytask.save
     if @mytask == nil
       @mytask = {id: params[:id].to_i, title: "Dude that doesn't exist"}
@@ -40,7 +40,6 @@ class TasksController < ApplicationController
   end
 
   def update
-    @mytask = Task.find(params[:id].to_i)
     @mytask.title = params[:task][:title]
     @mytask.description = params[:task][:description]
     @mytask.save
@@ -72,13 +71,18 @@ class TasksController < ApplicationController
   # puts statement in controller and model method to see if it worked
   # wrap saved in a conditional b/c it'll return true or false
 
-  # def self.alltasks
-  #   [
-  #     {id: 1, title: "Do photo shoot", description: "Fresh and profesh for my Linkedin", completed_at: Time.now, completion_status: false},
-  #     {id: 2, title: "Feed my face", description: "I am so damn hungry", completed_at: Time.now, completion_status: false},
-  #     {id: 3, title: "Play board games", description: "As long as it's not Catan again", completed_at: Time.now, completion_status: false}
-  #   ]
+private
+
+  # def task_params
+  #   params.require(:task).permit(:title, :description)
+
+  #etc? this is for update/create/new, SHOULD USE when passing a hash to any of those methods, do this to prevent injection risks
+
   # end
+
+  def find_task
+    @mytask = Task.find(params[:id])
+  end
 
 end
 
