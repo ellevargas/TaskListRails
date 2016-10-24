@@ -1,13 +1,13 @@
 
 header {
   background-color: #5700B5;
-  height: 18vw;
+  height: 14vw;
   margin-bottom: 1vw;
 }
 
 h1 {
 color: white;
-padding-top: 3.5vw;
+padding-top: 2.5vw;
 padding-left: 4vw;
 font-size: 4rem;
 text-align: left;
@@ -20,15 +20,16 @@ h4 {
 }
 
 nav {
-  margin: 1.75vw 0 1vw 7vw;
+  margin: .5vw 0 1vw 7vw;
 }
 
 nav li a {
   background-color: #5700B5;
   color: white;
-  font-size: 2.5rem;
+  font-size: 2rem;
   float: left;
   padding: 1.5vw 2.5vw 0 2.5vw;
+  text-decoration: none;
 }
 
 article {
@@ -37,11 +38,11 @@ article {
 }
 
 article h2 a {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 article a, h3 {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   padding: 2vw 0 1vw 0;
 }
 
