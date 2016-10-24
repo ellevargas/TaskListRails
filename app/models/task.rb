@@ -13,6 +13,6 @@ end
 
 # in app/models/Task.rb
 class Task < ActiveRecord::Base
-  validate :name, presence: :true
+  validates :name, presence: :true
   validates_with MyValidator
 end
