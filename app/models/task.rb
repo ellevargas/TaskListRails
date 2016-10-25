@@ -1,4 +1,6 @@
 class Task < ActiveRecord::Base
+  belongs_to :user
+
   def marked_completed
     # puts completion_status
     # puts completed_at
@@ -13,6 +15,6 @@ end
 
 # in app/models/Task.rb
 class Task < ActiveRecord::Base
-  validates :name, presence: :true
+  validates :title, presence: :true
   validates_with MyValidator
 end

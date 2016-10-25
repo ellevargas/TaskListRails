@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  root to: 'tasks#index'
-  get 'tasks/index', as: 'index'
+  root to: 'homepages#index'
+  get 'homepages/index', as: 'index'
+
+  get 'homepages/show'
+
+  get 'tasks/index' => 'tasks#index', as: 'index_tasks'
 
   get 'tasks/new' => 'tasks#new', as: 'new'
 
@@ -21,6 +25,8 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback" => 'sessions#create'
 
   get 'sessions/create'
+
+  get 'sessions/index' => 'sessions#index', as: 'index_sessions'
 
   delete 'sessions/destroy' => 'sessions#destroy'
 

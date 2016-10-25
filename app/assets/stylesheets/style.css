@@ -11,6 +11,16 @@ padding-top: 2.5vw;
 padding-left: 4vw;
 font-size: 4rem;
 text-align: left;
+width: 50%;
+display: block;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 2.5rem;
 }
 
 h4 {
@@ -82,6 +92,17 @@ form.button_to {
   background-color: #5700B5;
   color: white;
   border: none;
+}
+
+img {
+  border-radius: 50%;
+  width: auto;
+  height: auto;
+  max-width: 10%;
+  max-height: 10%;
+  display: inline-block;
+  float: right;
+  margin: 0 5% 5% 0
 }
 
 
