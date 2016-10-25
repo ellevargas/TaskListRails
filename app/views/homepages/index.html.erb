@@ -1,0 +1,15 @@
+<div class="article">
+  <% if session[:user_id] != nil %>
+    <% @user.avatar %>
+  <% end %>
+
+  <% if @user %>
+  <h2>Welcome, <%= @user.name %></h2>
+  <% else %>
+  <h2>Welcome, guest!</h2>
+  <h3>Please log in via Github to start creating tasks.</h3>
+<% end %>
+<% if flash[:notice] %>
+  <p class="flash-notice"><%= flash[:notice] %></p>
+<% end %>
+</div>
