@@ -11,7 +11,7 @@
     <h3> Description: <%= task.description %> </h3>
     <%# if task.completion_status == true %>
 
-    <h3>  <%= task.completion_status %> Completed? </h3>
+    <h3> Completed? <%= task.completion_status %> </h3>
     <h3> Completed at: <%= task.completed_at %> </h3>
 
     <%= button_to "Edit Task", {action: "edit", id: task.id}, method: :get, :class => 'btn' %>
