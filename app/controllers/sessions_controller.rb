@@ -1,4 +1,9 @@
 class SessionsController < ApplicationController
+
+    def index
+      @user = User.find(session[:user_id]) # < recalls the value set in a previous request
+    end
+
   def create
     auth_hash = request.env['omniauth.auth']
 
@@ -16,7 +21,7 @@ class SessionsController < ApplicationController
    session[:user_id] = @user.id
 
    flash[:notice] = "Successfully logged in!"
-   redirect_to root_path
+   redirect_to index_tasks_path
   end
 
   def destroy
@@ -24,7 +29,4 @@ class SessionsController < ApplicationController
     redirect_to root_path, notice: 'Successfully logged out.'
   end
 
-  def index
-    @user = User.find(session[:user_id]) # < recalls the value set in a previous request
-  end
 end

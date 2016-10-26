@@ -32,7 +32,6 @@ class TasksController < ApplicationController
   def show; end
 
   def edit
-    @path = "update"
     @mytask.save
     if @mytask == nil
       @mytask = {id: params[:id].to_i, title: "Dude that doesn't exist"}
@@ -40,24 +39,16 @@ class TasksController < ApplicationController
   end
 
   def update
-    @mytask.title = params[:task][:title]
-    @mytask.description = params[:task][:description]
-    @mytask.save
-    redirect_to action: 'index'
-
-    # puts @mytask.completion_status
-    # puts @mytask.completed_at
-    # if @mytask.save == true
-    #   puts @mytask.completion_status
-    #   puts @mytask.completed_at
-    # else
-    #   puts false
-    # end
-    # puts "wheee"
+    find_task
+    if @mytask.update(task_params)
+      redirect_to action: 'index'
+    else
+      render :edit
+    end
   end
 
   def complete
-    show
+    find_task
     @mytask.marked_completed
     @mytask.save
     redirect_to action: 'index'
@@ -73,12 +64,12 @@ class TasksController < ApplicationController
 
 private
 
-  # def task_params
-  #   params.require(:task).permit(:title, :description)
+  def task_params
+    params.require(:task).permit(:title, :description)
 
   #etc? this is for update/create/new, SHOULD USE when passing a hash to any of those methods, do this to prevent injection risks
 
-  # end
+  end
 
   def find_task
     @mytask = Task.find(params[:id])

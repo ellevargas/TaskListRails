@@ -11,13 +11,11 @@
     <h1> Taskmaster</h1>
     <nav>
       <ul>
-        <% if session[:user_id] != nil %>
-          <li><%= link_to "Logout", sessions_destroy_path, method: :delete %></li>
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "New Task", new_path %></li>
-          <%# image_tag @user.avatar %>
-        <% else %>
+        <% if session[:user_id] == nil %>
           <li><%= link_to "Login via Github", "/auth/github" %></li>
+        <% else %>
+          <li><%= link_to "Logout", sessions_destroy_path, method: :delete %></li>
+          <li><%= link_to "New Task", new_path %></li>
         <% end %>
         <li><a href="http://www.leekspin.com">Party</a></li>
       </ul>
