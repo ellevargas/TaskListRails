@@ -66,11 +66,7 @@ private
     params.require(:task).permit(:title, :description)
     # this is for update/create/new, SHOULD USE when passing a hash to any of those methods, do this to prevent injection risks
   end
-
-  # def find_task
-  #   @mytask = Task.find(params[:id])
-  # end
-
+  
   def check_login
     if !session[:user_id]
       flash[:notice] = "Please log in first!"
