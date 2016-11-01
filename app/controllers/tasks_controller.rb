@@ -40,7 +40,7 @@ class TasksController < ApplicationController
 
   def update
     if @mytask.update(task_params)
-      redirect_to action: 'index'
+      redirect_to index_tasks_path
     else
       render :edit
     end
@@ -49,12 +49,12 @@ class TasksController < ApplicationController
   def complete
     @mytask.marked_completed
     @mytask.save
-    redirect_to action: 'index'
+    redirect_to index_tasks_path
   end
 
   def destroy
     @mytask.destroy
-    redirect_to action: 'index'
+    redirect_to index_tasks_path
   end
 
   # puts statement in controller and model method to see if it worked
@@ -66,7 +66,7 @@ private
     params.require(:task).permit(:title, :description)
     # this is for update/create/new, SHOULD USE when passing a hash to any of those methods, do this to prevent injection risks
   end
-  
+
   def check_login
     if !session[:user_id]
       flash[:notice] = "Please log in first!"
