@@ -1,31 +1,30 @@
 class TasksController < ApplicationController
-  before_action :find_task, only: [:show, :edit, :update]
-  # except instead of only uses it on all but the aforementioned methods
+  before_action :check_login
+  before_action :find_task, except: [:index, :new, :create] # do I need to do this on new?
+  # index is saying to find all, but should show tasks only for current user
+  # not saying find task for destroy - need to find it in same way
 
   def index
     @tasks = Task.all
-    # @tasks = TasksController.alltasks
   end
 
   def new
-    @path = "create"
     @mytask = Task.new
   end
 
   def create
-    @params = params
     @mytask = Task.new
     @mytask.title = params[:task][:title]
     @mytask.description = params[:task][:description]
     @mytask.completed_at = params[:task][:completed_at]
     @mytask.completion_status = params[:task][:completion_status]
+    @mytask.user = @user
     if @mytask.title == nil ||  @mytask.title == ""
       flash[:notice] = "Dude you need a title at the very least"
       redirect_to action: 'new'
     else
       @mytask.save
-      redirect_to action: 'index'
-
+      redirect_to index_tasks_path
     end
   end
 
@@ -36,10 +35,10 @@ class TasksController < ApplicationController
     if @mytask == nil
       @mytask = {id: params[:id].to_i, title: "Dude that doesn't exist"}
     end
+
   end
 
   def update
-    find_task
     if @mytask.update(task_params)
       redirect_to action: 'index'
     else
@@ -48,14 +47,13 @@ class TasksController < ApplicationController
   end
 
   def complete
-    find_task
     @mytask.marked_completed
     @mytask.save
     redirect_to action: 'index'
   end
 
   def destroy
-    Task.destroy(params[:id].to_i)
+    @mytask.destroy
     redirect_to action: 'index'
   end
 
@@ -66,13 +64,28 @@ private
 
   def task_params
     params.require(:task).permit(:title, :description)
+    # this is for update/create/new, SHOULD USE when passing a hash to any of those methods, do this to prevent injection risks
+  end
 
-  #etc? this is for update/create/new, SHOULD USE when passing a hash to any of those methods, do this to prevent injection risks
+  # def find_task
+  #   @mytask = Task.find(params[:id])
+  # end
 
+  def check_login
+    if !session[:user_id]
+      flash[:notice] = "Please log in first!"
+      redirect_to root_path
+    else
+      @user = User.find_by(id: session[:user_id])
+    end
   end
 
   def find_task
-    @mytask = Task.find(params[:id])
+    @mytask = Task.find_by(id: params[:id])
+    if !@mytask || !@user.tasks.include?(@mytask)
+      flash[:notice] = "Sorry, that is not one of your tasks."
+      redirect_to root_path
+    end
   end
 
 end
