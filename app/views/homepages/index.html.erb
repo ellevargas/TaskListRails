@@ -1,6 +1,6 @@
 <div class="article">
   <% if session[:user_id] != nil %>
-    <% @user.avatar %>
+    <% image_tag @user.avatar %> <%# check syntax %>
   <% end %>
 
   <% if @user %>
